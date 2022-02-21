@@ -1,0 +1,29 @@
+{
+    "name": "bensondevs/gobiz-sdk-php",
+    "description": "Gobiz Enterprise API SDK",
+    "type": "library",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^6.3 || ^7.0",
+        "phpunit/phpunit": ">=7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simeon Bensona",
+            "email": "bensondevs@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "files": {
+            "src/helpers.php"
+        },
+        "psr-4": {
+            "BensonDevs\\Gobiz\\": "src/"
+        }
+    },
+}
