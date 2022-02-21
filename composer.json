@@ -31,7 +31,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BensonDevs\\Providers\\GobizServiceProvider"
+                "BensonDevs\\Gobiz\\Providers\\GobizServiceProvider"
             ]
         }
     }
