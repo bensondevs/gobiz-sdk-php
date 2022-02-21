@@ -100,3 +100,30 @@ if (! function_exists('which_env')) {
         return env($attr, $defaultValue);
     }
 }
+
+/**
+ * Generate random string by specified 
+ * amount of characters. Default amount is 5
+ * 
+ * @param  int      $length
+ * @return string
+ */
+if (! function_exists('random_string')) {
+    function random_string(int $length = 5) 
+    {
+        return Illuminate\Support\Str::random($length);
+    }
+}
+
+/**
+ * Convert string to camel case
+ * 
+ * @param string  $string
+ * @return string
+ */
+if (! function_exists('str_camel_case')) {
+    function str_camel_case(string $string)
+    {
+        return Illuminate\Support\Str::camel($string);
+    }
+}

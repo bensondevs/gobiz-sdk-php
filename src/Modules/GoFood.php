@@ -15,7 +15,7 @@ class GoFood extends GobizService implements BelongsToOutletContract
     | This module is handling promotion section of Go-Food API.
    	| The main reference of this module is this documentation:
    	|
-   	| https://docs.gobiz.co.id/docs/index.html#pre-requisite11
+   	| https://docs.gobiz.co.id/api-reference/index.html#:~:text=or%20go_auth_client_credentials(transaction%3Aread).-,Enterprise%20%2D%20Outlet%20Notification%20Subscriptions,-This%20section%20specifies
     |
     */
 

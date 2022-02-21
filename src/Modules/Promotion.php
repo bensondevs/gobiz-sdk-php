@@ -49,20 +49,12 @@ class Promotion extends GobizService implements BelongsToOutletContract
 	 */
 	public function list(array $parameters = [])
 	{
-		// Prepare optional parameters
-		$limit = isset($parameters['limit']) ?
-			$parameters['limit'] : 0;
-		$page = isset($parameters['page']) ?
-			$parameters['page'] : 1;
-
 		// Prepare API URL endpoint
 		$apiUrl = $this->baseUri;
+		$apiUrl = $this->apiUrl($apiUrl);
 
 		// Get response from the gobiz promo api request
-		$response = $this->makeRequest('GET', $apiUrl, [
-			'limit' => $limit,
-			'page' => $page,
-		]);
+		$response = $this->makeRequest('GET', $apiUrl, $parameters);
 
 		return $response;
 	}
@@ -81,6 +73,7 @@ class Promotion extends GobizService implements BelongsToOutletContract
 	{
 		// Prepare API URL endpoint
 		$apiUrl = $this->baseUri;
+		$apiUrl = $this->apiUrl($apiUrl);
 
 		// Add required header
 		$this->guzzleClient->addHeader('X-Idempotency-Key', random_string(32));
@@ -104,6 +97,7 @@ class Promotion extends GobizService implements BelongsToOutletContract
 			$this->baseUri, 
 			$promoId
 		]);
+		$apiUrl = $this->apiUrl($apiUrl);
 
 		// Get response from the gobiz promo api request
 		$response = $this->makeRequest('GET', $apiUrl);
@@ -125,6 +119,7 @@ class Promotion extends GobizService implements BelongsToOutletContract
 			$promoId, 
 			'activate'
 		]);
+		$apiUrl = $this->apiUrl($apiUrl);
 
 		// Get response from the gobiz promo api request
 		$response = $this->makeRequest('PUT', $apiUrl);
@@ -146,6 +141,7 @@ class Promotion extends GobizService implements BelongsToOutletContract
 			$promoId, 
 			'deactivate'
 		]);
+		$apiUrl = $this->apiUrl($apiUrl);
 
 		// Get response from the gobiz promo api request
 		$response = $this->makeRequest('PUT', $apiUrl);
@@ -167,6 +163,7 @@ class Promotion extends GobizService implements BelongsToOutletContract
 			$promoId, 
 			'delete'
 		]);
+		$apiUrl = $this->apiUrl($apiUrl);
 
 		// Get response from the gobiz promo api request
 		$response = $this->makeRequest('DELETE', $apiUrl);

@@ -2,31 +2,49 @@
 
 namespace BensonDevs\Gobiz\Modules;
 
-use BensonDevs\Gobiz\Services\GobizService;
+use BensonDevs\Gobiz\Services\GobizService as Service;
+use BensonDevs\Gobiz\Contracts\BelongsToOutletContract as OutletContract;
 
-class NotificationSubscription extends GobizService
+class OutletNotificationSubscription extends Service implements Contract
 {
 	/*
     |--------------------------------------------------------------------------
-    | Subscribe to order notification event Module
+    | Outlet Notification Subscription Module
     |--------------------------------------------------------------------------
     |
-    | This module is handling promotion section of Go-Biz merchant API.
+    | This module is handling promotion section of Outlet Notification Subscription.
    	| The main reference of this module is this documentation:
    	|
-   	| https://docs.gobiz.co.id/docs/index.html#:~:text=Subscribe%20to%20order%20notification%20event
+   	| https://docs.gobiz.co.id/docs/index.html#pre-requisite11
     |
     */
 
     /**
-     * Notification subscription base uri
-     * 
-     * @var string
-     */
-    private $baseUri = '/notification-subscriptions/';
+	 * Outlet Notification Subscription base uri
+	 * 
+	 * @var string
+	 */
+	private $baseUri = 'outlets/{outlet_id}/notification-subscriptions/';
 
-    /**
-     * Get list of notification subscriptions
+	/**
+	 * Set outlet ID for the GoFood module
+	 * 
+	 * @param  string  $outletId
+	 * @return $this
+	 */
+	public function setOutlet(string $outletId)
+	{
+		$explode = explode('/', $this->baseUri);
+		$explode[1] = $outletId;
+
+		$newUri = implode('/', $explode);
+		$this->baseUri = $newUri;
+
+		return $this;
+	}
+
+	/**
+     * Get list of outlet notification subscriptions
      * 
      * @return array
      */
@@ -42,7 +60,7 @@ class NotificationSubscription extends GobizService
     }
 
     /**
-     * Create notification subscription
+     * Create outlet notification subscription
      * 
      * @param  array  $eventData
      * @return array
@@ -59,7 +77,7 @@ class NotificationSubscription extends GobizService
     }
 
     /**
-     * Update notification subscription
+     * Update outlet notification subscription
      * 
      * @param  string $id
      * @param  array  $eventData
@@ -78,7 +96,7 @@ class NotificationSubscription extends GobizService
     }
 
     /**
-     * Delete notification subscription
+     * Delete outlet notification subscription
      * 
      * @param  string $id
      * @return bool
