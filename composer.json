@@ -19,11 +19,20 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
-        "files": {
-            "src/helpers.php"
-        },
         "psr-4": {
             "BensonDevs\\Gobiz\\": "src/"
         }
     },
+    "autoload-dev": {
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BensonDevs\\Providers\\GobizServiceProvider"
+            ]
+        }
+    }
 }
