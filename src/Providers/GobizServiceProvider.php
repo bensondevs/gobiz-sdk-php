@@ -1,6 +1,6 @@
 <?php
 
-namespace BensonDevs\Gobiz\Modules;
+namespace BensonDevs\Gobiz\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
