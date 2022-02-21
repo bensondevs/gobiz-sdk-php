@@ -78,4 +78,26 @@ class Outlet extends GobizService
 
 		return $data['outlets'];
 	}
+
+	/**
+	 * Open outlet.
+	 * 
+	 * @param  string  $outletId
+	 * @return array
+	 */
+	public function open()
+	{
+		//
+	}
+
+	/**
+	 * Close outlet.
+	 * 
+	 * @param  string  $outletId
+	 * @return array
+	 */
+	public function close()
+	{
+		//
+	}
 }

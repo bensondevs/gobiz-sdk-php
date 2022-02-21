@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class GobizServiceProvider extends ServiceProvider
 {
-	/**
+    /**
      * Register the service provider.
      *
      * @return void

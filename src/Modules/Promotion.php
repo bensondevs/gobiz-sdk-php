@@ -7,6 +7,18 @@ use BensonDevs\Gobiz\Contracts\BelongsToOutletContract;
 
 class Promotion extends GobizService implements BelongsToOutletContract
 {
+	/*
+    |--------------------------------------------------------------------------
+    | SKU Promotion Module
+    |--------------------------------------------------------------------------
+    |
+    | This module is handling promotion section of Go-Biz merchant API.
+   	| The main reference of this module is this documentation:
+   	|
+   	| https://docs.gobiz.co.id/docs/index.html#sku-promo
+    |
+    */
+
 	/**
 	 * Gofood base uri
 	 * 
@@ -30,26 +42,53 @@ class Promotion extends GobizService implements BelongsToOutletContract
 	}
 
 	/**
-	 * Get all outlet promotion list
+	 * Get list of outlet promotions.
 	 * 
-	 * @param  int  $limit
-	 * @param  int  $page
+	 * @param  array  $parameters
 	 * @return array
 	 */
-	public function all(int $limit = 0, int $page = 0)
+	public function list(array $parameters = [])
 	{
-		//
+		// Prepare optional parameters
+		$limit = isset($parameters['limit']) ?
+			$parameters['limit'] : 0;
+		$page = isset($parameters['page']) ?
+			$parameters['page'] : 1;
+
+		// Prepare API URL endpoint
+		$apiUrl = $this->baseUri;
+
+		// Get response from the gobiz promo api request
+		$response = $this->makeRequest('GET', $apiUrl, [
+			'limit' => $limit,
+			'page' => $page,
+		]);
+
+		return $response;
 	}
 
 	/**
-	 * Create outlet promotion
+	 * Create outlet promotion.
+	 * 
+	 * This method require the array to have attributes of:
+	 * - promo_type
+	 * - promo_details
 	 * 
 	 * @param  array  $promoData
 	 * @return array
 	 */
 	public function create(array $promoData)
 	{
-		//
+		// Prepare API URL endpoint
+		$apiUrl = $this->baseUri;
+
+		// Add required header
+		$this->guzzleClient->addHeader('X-Idempotency-Key', random_string(32));
+
+		// Get response from the gobiz promo api request
+		$response = $this->makeRequest('POST', $apiUrl, $promoData);
+
+		return $response['success'];
 	}
 
 	/**
@@ -60,18 +99,58 @@ class Promotion extends GobizService implements BelongsToOutletContract
 	 */
 	public function find(string $promoId)
 	{
-		//
+		// Prepare API URL endpoint
+		$apiUrl = concat_paths([
+			$this->baseUri, 
+			$promoId
+		]);
+
+		// Get response from the gobiz promo api request
+		$response = $this->makeRequest('GET', $apiUrl);
+
+		return $response;
 	}
 
 	/**
-	 * Deactivate the outlet promotion
+	 * Activate the outlet promotion.
+	 * 
+	 * @param  string  $promoId
+	 * @return array
+	 */
+	public function activate(string $promoId)
+	{
+		// Prepare API URL endpoint
+		$apiUrl = concat_paths([
+			$this->baseUri, 
+			$promoId, 
+			'activate'
+		]);
+
+		// Get response from the gobiz promo api request
+		$response = $this->makeRequest('PUT', $apiUrl);
+
+		return $response;
+	}
+
+	/**
+	 * Deactivate the outlet promotion.
 	 * 
 	 * @param  string  $promoId
 	 * @return array
 	 */
 	public function deactivate(string $promoId)
 	{
-		//
+		// Prepare API URL endpoint
+		$apiUrl = concat_paths([
+			$this->baseUri, 
+			$promoId, 
+			'deactivate'
+		]);
+
+		// Get response from the gobiz promo api request
+		$response = $this->makeRequest('PUT', $apiUrl);
+
+		return $response;
 	}
 
 	/**
@@ -82,6 +161,16 @@ class Promotion extends GobizService implements BelongsToOutletContract
 	 */
 	public function delete(string $promoId)
 	{
-		//
+		// Prepare API URL endpoint
+		$apiUrl = concat_paths([
+			$this->baseUri, 
+			$promoId, 
+			'delete'
+		]);
+
+		// Get response from the gobiz promo api request
+		$response = $this->makeRequest('DELETE', $apiUrl);
+
+		return $response;
 	}
 }

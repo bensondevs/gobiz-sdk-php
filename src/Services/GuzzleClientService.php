@@ -15,6 +15,13 @@ class GuzzleClientService
 	private $client;
 
 	/**
+	 * Headers array data container
+	 * 
+	 * @var array
+	 */
+	protected $headers = [];
+
+	/**
 	 * Set response to array
 	 * 
 	 * @var bool
@@ -29,9 +36,7 @@ class GuzzleClientService
 	 */
 	public function __construct(array $headers = [])
 	{
-		$this->client = empty($headers) ? 
-			new Client : 
-			new Client(['headers' => $headers]);
+		$this->setHeaders($headers);
 	}
 
 	/**
@@ -60,14 +65,33 @@ class GuzzleClientService
 	}
 
 	/**
-	 * Set headers of the client class
+	 * Set headers of the client instance class
 	 * 
 	 * @param  array  $headers
 	 * @return $this
 	 */
 	public function setHeaders(array $headers)
 	{
-		$this->client = new Client(['headers' => $headers]);
+		$this->headers = $headers;
+		$this->client = new Client([
+			'headers' => $this->headers
+		]);
+
+		return $this;
+	}
+
+	/**
+	 * Add header of the client instance class
+	 * 
+	 * @param  string  $key
+	 * @param  string  $value
+	 * @return $this
+	 */
+	public function addHeader(string $key, string $value)
+	{
+		$headers = $this->headers;
+		$headers[$key] = $value;
+		$this->setHeaders($headers);
 
 		return $this;
 	}
