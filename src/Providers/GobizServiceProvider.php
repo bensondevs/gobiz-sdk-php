@@ -66,7 +66,7 @@ class GobizServiceProvider extends ServiceProvider
         }
 
         // Replace the env content with new one
-        file_put_contents($envPath, $envContent);
+        file_put_contents($envPath, $envContents);
     }
 
     /**
