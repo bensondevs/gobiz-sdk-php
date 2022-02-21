@@ -7,6 +7,18 @@ use BensonDevs\Gobiz\Contracts\BelongsToOutletContract;
 
 class GoFood extends GobizService implements BelongsToOutletContract
 {
+	/*
+    |--------------------------------------------------------------------------
+    | GoFood Module
+    |--------------------------------------------------------------------------
+    |
+    | This module is handling promotion section of Go-Food API.
+   	| The main reference of this module is this documentation:
+   	|
+   	| https://docs.gobiz.co.id/docs/index.html#pre-requisite11
+    |
+    */
+
 	/**
 	 * Gofood base uri
 	 * 
@@ -50,13 +62,13 @@ class GoFood extends GobizService implements BelongsToOutletContract
 		]));
 
 		// Get response from the gofood api request
-		$response = $this->makeRequest('PUT', $apiUrl, [
+		$data = $this->makeRequest('PUT', $apiUrl, [
 			'request_id' => $requestId,
 			'menus' => $menus,
 			'variant_categories' => $varCategories,
 		]);
 
-		return $response;
+		return $data;
 	}
 
 	/**
@@ -87,8 +99,10 @@ class GoFood extends GobizService implements BelongsToOutletContract
 
 		// Get response from the gofood api request
 		$countryCode = $countryCode ?: 'ID';
-		$response = $this->makeRequest('PUT', $apiUrl, [
+		$data = $this->makeRequest('PUT', $apiUrl, [
 			'country_code' => strtoupper($countryCode)
 		]);
+
+		return $data;
 	}
 }

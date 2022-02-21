@@ -6,6 +6,18 @@ use BensonDevs\Gobiz\Services\GobizService;
 
 class Outlet extends GobizService
 {
+	/*
+    |--------------------------------------------------------------------------
+    | Outlet Management Module
+    |--------------------------------------------------------------------------
+    |
+    | This module is handling promotion section of Go-Biz outlet management.
+   	| The main reference of this module is this documentation:
+   	|
+   	| https://docs.gobiz.co.id/docs/index.html#:~:text=Yes-,Outlet%20Management,-Open%20and%20Close
+    |
+    */
+
 	/**
 	 * Outlet base uri
 	 * 
@@ -56,25 +68,17 @@ class Outlet extends GobizService
 	/**
 	 * Get all gobiz enterprise's outlets
 	 * 
+	 * @param  array  $parameters
 	 * @return array
 	 */
-	public function all()
+	public function all(array $parameters = [])
 	{
 		// Prepare the URL endpoint for request
 		$uri = $this->baseUri;
 		$url = $this->apiUrl($uri);
 
-		// Prepare request parameters
-		$params = [];
-		if ($this->perPage) {
-			$params['per'] = $this->perPage;
-		}
-		if ($this->page) {
-			$params['page'] = $this->page;
-		}
-
-		// Make request to API
-		$data = $this->makeRequest('GET', $url, $params);
+		// Get response from the gobiz promo api request
+		$data = $this->makeRequest('GET', $url, $parameters);
 
 		return $data['outlets'];
 	}
@@ -85,9 +89,19 @@ class Outlet extends GobizService
 	 * @param  string  $outletId
 	 * @return array
 	 */
-	public function open()
+	public function open(string $outletId)
 	{
-		//
+		// Prepare the URL endpoint for request
+		$apiUrl = concat_paths([
+			$this->baseUri, 
+			$outletId, 
+			'open'
+		]);
+
+		// Get response from the gobiz promo api request
+		$data = $this->makeRequest('PATCH', $apiUrl);
+
+		return $data;
 	}
 
 	/**
@@ -96,8 +110,18 @@ class Outlet extends GobizService
 	 * @param  string  $outletId
 	 * @return array
 	 */
-	public function close()
+	public function close(string $outletId)
 	{
-		//
+		// Prepare the URL endpoint for request
+		$apiUrl = concat_paths([
+			$this->baseUri, 
+			$outletId, 
+			'close'
+		]);
+
+		// Get response from the gobiz promo api request
+		$data = $this->makeRequest('PATCH', $apiUrl);
+
+		return $data;
 	}
 }
