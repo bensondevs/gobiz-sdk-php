@@ -1,7 +1,7 @@
 # Unofficial Gobiz API SDK for Laravel
 
 <p>
-This is the unofficial Gobiz API SDK for integration with framework of Laravel. 
+This is the unofficial Gobiz API SDK for integration with Laravel PHP Framework. 
 This project is integration classes and module for ease up project development that uses integration with GoBiz or GoFood Merchant.
 </p>
 
@@ -15,7 +15,7 @@ This project is integration classes and module for ease up project development t
 
 ## SDK Documentation
 
-<p>Coming soon...</p>
+<p>Coming (really f) soon...</p>
 
 ## NOTICE ME
 
