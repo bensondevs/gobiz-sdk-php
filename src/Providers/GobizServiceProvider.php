@@ -49,20 +49,20 @@ class GobizServiceProvider extends ServiceProvider
 
         // Put added vars to the content
         $addedVars = [
-            'GOBIZ_CLIENT_ID' => '',
-            'GOBIZ_CLIENT_SECRET' => '',
+            'GOBIZ_CLIENT_ID' => 'GOJEK_ID',
+            'GOBIZ_CLIENT_SECRET' => 'SECRET',
             'GOBIZ_APP_ENV' => 'local',
             'GOBIZ_API_SANDBOX_BASE_URL' => 'https://api.sandbox.gobiz.co.id/',
             'GOBIZ_API_BASE_URL' => 'https://api.gobiz.co.id/',
             'GOBIZ_API_SANDBOX_OAUTH_URL' => 'https://integration-goauth.gojekapi.com',
             'GOBIZ_API_OAUTH_URL' => 'https://accounts.go-jek.com',
-            'GOBIZ_ENTERPRISE_ID' => '',
-            'GOBIZ_CODE' => '',
-            'GOBIZ_REDIRECT_URI' => '',
+            'GOBIZ_ENTERPRISE_ID' => 'ENTERPRISE_ID',
+            'GOBIZ_CODE' => 'CODE',
+            'GOBIZ_REDIRECT_URI' => 'URI',
         ];
         $envContents .= "\n";
         foreach ($addedVars as $addedVar => $value) {
-            $envContents .= $addedVar . '=' . $value;
+            $envContents .= $addedVar . '=' . $value . "\n";
         }
 
         // Replace the env content with new one
