@@ -17,6 +17,6 @@ This project is integration classes and module for ease up project development t
 
 <p>Coming soon...</p>
 
-## NOTICE!!!
+## NOTICE ME
 
 <p>This project is under-development. If you are interested with the project, please submit pull request and thank you for your concern</p>
