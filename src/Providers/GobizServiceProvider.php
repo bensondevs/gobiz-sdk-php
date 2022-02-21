@@ -45,7 +45,7 @@ class GobizServiceProvider extends ServiceProvider
         }
 
         // Get the env content
-        $envContents = file($envPath);
+        $envContents = file_get_contents($envPath);
 
         // Put added vars to the content
         $addedVars = [
@@ -60,14 +60,13 @@ class GobizServiceProvider extends ServiceProvider
             'GOBIZ_CODE' => '',
             'GOBIZ_REDIRECT_URI' => '',
         ];
-        array_push($envContents, "\n");
+        $envContents .= "\n";
         foreach ($addedVars as $addedVar => $value) {
-            array_push($envContents, $addedVar . '=' . $value . "\n");
+            $envContents .= $addedVar . '=' . $value;
         }
-        $newEnvContent = implode("\n", $envContents);
 
         // Replace the env content with new one
-        file_put_contents($envPath, $newEnvContent);
+        file_put_contents($envPath, $envContent);
     }
 
     /**
