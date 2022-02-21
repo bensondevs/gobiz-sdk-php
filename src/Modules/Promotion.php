@@ -16,8 +16,8 @@ class Promotion extends GobizService implements BelongsToOutletContract
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#sku-promo
-    |
-    */
+	|
+	*/
 
 	/**
 	 * Gofood base uri

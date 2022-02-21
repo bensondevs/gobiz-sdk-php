@@ -15,8 +15,8 @@ class Outlet extends GobizService
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#:~:text=Yes-,Outlet%20Management,-Open%20and%20Close
-    |
-    */
+	|
+	*/
 
 	/**
 	 * Outlet base uri

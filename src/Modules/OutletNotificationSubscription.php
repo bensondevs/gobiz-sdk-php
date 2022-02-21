@@ -16,8 +16,8 @@ class OutletNotificationSubscription extends Service implements Contract
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#pre-requisite11
-    |
-    */
+	|
+	*/
 
     /**
 	 * Outlet Notification Subscription base uri
