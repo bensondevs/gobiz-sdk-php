@@ -7,11 +7,11 @@ use BensonDevs\Gobiz\Services\GobizService;
 class Outlet extends GobizService
 {
 	/*
-    |--------------------------------------------------------------------------
-    | Outlet Management Module
-    |--------------------------------------------------------------------------
-    |
-    | This module is handling promotion section of Go-Biz outlet management.
+	|--------------------------------------------------------------------------
+	| Outlet Management Module
+	|--------------------------------------------------------------------------
+	|
+	| This module is handling promotion section of Go-Biz outlet management.
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#:~:text=Yes-,Outlet%20Management,-Open%20and%20Close

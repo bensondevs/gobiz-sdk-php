@@ -8,11 +8,11 @@ use BensonDevs\Gobiz\Contracts\BelongsToOutletContract as OutletContract;
 class OutletNotificationSubscription extends Service implements Contract
 {
 	/*
-    |--------------------------------------------------------------------------
-    | Outlet Notification Subscription Module
-    |--------------------------------------------------------------------------
-    |
-    | This module is handling promotion section of Outlet Notification Subscription.
+	|--------------------------------------------------------------------------
+	| Outlet Notification Subscription Module
+	|--------------------------------------------------------------------------
+	|
+	| This module is handling promotion section of Outlet Notification Subscription.
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#pre-requisite11

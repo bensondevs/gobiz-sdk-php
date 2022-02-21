@@ -8,11 +8,11 @@ use BensonDevs\Gobiz\Contracts\BelongsToOutletContract;
 class Promotion extends GobizService implements BelongsToOutletContract
 {
 	/*
-    |--------------------------------------------------------------------------
-    | SKU Promotion Module
-    |--------------------------------------------------------------------------
-    |
-    | This module is handling promotion section of Go-Biz merchant API.
+	|--------------------------------------------------------------------------
+	| SKU Promotion Module
+	|--------------------------------------------------------------------------
+	|
+	| This module is handling promotion section of Go-Biz merchant API.
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#sku-promo

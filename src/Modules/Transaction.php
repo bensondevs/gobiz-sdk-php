@@ -8,11 +8,11 @@ use BensonDevs\Gobiz\Services\GobizService;
 class Transaction extends GobizService
 {
 	/*
-    |--------------------------------------------------------------------------
-    | Transaction Module
-    |--------------------------------------------------------------------------
-    |
-    | This module is handling promotion section of Go-Biz pay integration.
+	|--------------------------------------------------------------------------
+	| Transaction Module
+	|--------------------------------------------------------------------------
+	|
+	| This module is handling promotion section of Go-Biz pay integration.
    	| The main reference of this module is this documentation:
    	|
    	| https://docs.gobiz.co.id/docs/index.html#:~:text=force_close%22%3A%20true/false%0A%20%20%20%7D%0A%7D-,Pay%20Integration,-Pre%2DRequisite
