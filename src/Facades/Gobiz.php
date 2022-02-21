@@ -1,6 +1,6 @@
 <?php
 
-namespace BensonDevs\Gobiz\Modules;
+namespace BensonDevs\Gobiz\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
